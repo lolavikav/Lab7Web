@@ -26,6 +26,27 @@ Konfigurasi: melakukan pengaturan koneksi database melalui file `.env.`
 
 ## Modul 3: Templating (View Layout & View Cell)
 Pada tahap ini, diterapkan prinsip DRY (Don't Repeat Yourself) supaya kode lebih rapi dan tidak berulang-ulang.
+
 Untuk tampilan, digunakan konsep View Layout dengan satu file utama `layout/main.php.` Halaman lain cukup mengisi bagian tertentu saja menggunakan `$this->extend()`, jadi tidak perlu membuat struktur dari awal lagi.
+
 Selain itu, dibuat View Cell berupa komponen modular seperti `ArtikelTerkini`. Komponen ini bisa dipanggil di berbagai halaman tanpa harus menulis ulang query database di setiap Controller.
+
 Manfaatnya, kalau ada perubahan pada bagian seperti Header atau Footer, cukup ubah di satu file saja tanpa harus edit semua halaman.
+
+## Modul 4: Autentikasi & Security Filter
+Tahap ini berfokus pada pengamanan area penting seperti Dashboard Admin agar tidak bisa diakses sembarangan.
+
+Alurnya: proses login dilakukan dengan memvalidasi username dan password menggunakan Session.
+
+Pengamanan: diterapkan `AuthFilter.php.` Jika ada user yang mencoba mengakses halaman `/admin` tanpa login, sistem akan otomatis mengarahkan kembali ke halaman `/login.`
+
+Database: dibuat tabel `user` untuk menyimpan data akun dan kredensial admin.
+
+## Modul 5: Optimasi UX (Pagination & Searching)
+Tahap ini berfokus pada peningkatan tampilan dan performa saat jumlah data sudah banyak.
+
+Pagination: penggunaan `findAll()` diganti dengan `paginate(10)` agar data ditampilkan per halaman, sehingga mencegah browser menjadi lambat ketika data sudah sangat banyak.
+
+Searching: memanfaatkan metode `like()` pada query SQL untuk mencari dan memfilter judul artikel sesuai kata kunci yang dimasukkan user.
+
+Persistence: menggunakan `pager->only(['q'])` supaya ketika user berpindah halaman (misalnya ke halaman 2), kata kunci pencarian tetap tersimpan dan hasilnya tidak hilang.
