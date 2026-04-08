@@ -51,3 +51,15 @@ Tahap ini berfokus pada peningkatan tampilan dan performa saat jumlah data sudah
 
 ## Cara Instalasi Proyek
 1. Clone & Setup:
+`https://github.com/lolavikav/Lab7Web.git`
+
+2. Database:
+   - Buat Database bernama `lab_ci4`
+   - import file `.sql` yang ada di folder `database/`
+  
+3. Environment:
+   - Rename `env` menjadi `.env`
+   - Atur `database.default.username` dan `databse.default.password` sesuaI XAMPP masing-masing.
+
+4. Run:
+   ```php spark serve```
