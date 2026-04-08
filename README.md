@@ -21,4 +21,5 @@ Fitur pada Admin:
 - Read: menampilkan data dari database ke dalam bentuk tabel HTML.
 - Update: mengambil data berdasarkan ID untuk kemudian bisa diedit kembali.
 - Delete: menghapus data secara permanen dari database.
+
 Konfigurasi: melakukan pengaturan koneksi database melalui file `.env.`
