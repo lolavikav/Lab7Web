@@ -26,9 +26,6 @@ Konfigurasi: melakukan pengaturan koneksi database melalui file `.env.`
 
 ## Modul 3: Templating (View Layout & View Cell)
 Pada tahap ini, diterapkan prinsip DRY (Don't Repeat Yourself) supaya kode lebih rapi dan tidak berulang-ulang.
-
 Untuk tampilan, digunakan konsep View Layout dengan satu file utama `layout/main.php.` Halaman lain cukup mengisi bagian tertentu saja menggunakan `$this->extend()`, jadi tidak perlu membuat struktur dari awal lagi.
-
 Selain itu, dibuat View Cell berupa komponen modular seperti `ArtikelTerkini`. Komponen ini bisa dipanggil di berbagai halaman tanpa harus menulis ulang query database di setiap Controller.
-
 Manfaatnya, kalau ada perubahan pada bagian seperti Header atau Footer, cukup ubah di satu file saja tanpa harus edit semua halaman.
